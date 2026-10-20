@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="460" viewBox="0 0 1040 460" role="img" aria-labelledby="title desc">
+<title id="title">Online store architecture</title>
+<desc id="desc">Client sends an order command to Order Service. Order queries Inventory and receives availability. A dashed event arrow connects Order to a conceptual Notification Service.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker></defs>
+<rect width="1040" height="460" fill="white"/>
+<g font-family="'Trebuchet MS', Arial, sans-serif" fill="#1e293b" text-anchor="middle">
+
+<text x="520" y="35" font-size="24" font-weight="bold">Online Store</text>
+<rect x="25" y="105" width="170" height="110" rx="5" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="110.0" y="136" font-size="19" font-weight="bold">Client</text>
+<text x="110.0" y="164" font-size="15" font-weight="normal">curl / store client</text>
+<rect x="370" y="105" width="240" height="110" rx="5" fill="#eff6ff" stroke="#334155" stroke-width="2"/>
+<text x="490.0" y="136" font-size="19" font-weight="bold">Order Service</text>
+<text x="490.0" y="164" font-size="15" font-weight="normal">HTTP :8000</text>
+<text x="490.0" y="187" font-size="15" font-weight="normal">Owns order records</text>
+<rect x="795" y="105" width="220" height="110" rx="5" fill="#f0fdf4" stroke="#334155" stroke-width="2"/>
+<text x="905.0" y="136" font-size="19" font-weight="bold">Inventory Service</text>
+<text x="905.0" y="164" font-size="15" font-weight="normal">HTTP :8001</text>
+<text x="905.0" y="187" font-size="15" font-weight="normal">Owns stock counts</text>
+<path d="M 195 132 L 370 132" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="282" y="91" font-size="15" font-weight="normal">POST /orders</text>
+<text x="282" y="116" font-size="14" font-weight="normal">Command</text>
+<path d="M 370 191 L 195 191" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="282" y="237" font-size="14" font-weight="normal">201 / 409 / 503</text>
+<path d="M 610 132 L 795 132" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="702" y="91" font-size="15" font-weight="normal">GET /availability</text>
+<text x="702" y="116" font-size="14" font-weight="normal">Query</text>
+<path d="M 795 191 L 610 191" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="702" y="237" font-size="14" font-weight="normal">Available / unavailable</text>
+<rect x="365" y="320" width="250" height="110" rx="5" fill="#fff7ed" stroke="#334155" stroke-width="2"/>
+<text x="490.0" y="351" font-size="19" font-weight="bold">Notification Service</text>
+<text x="490.0" y="379" font-size="15" font-weight="normal">Conceptual component</text>
+<text x="490.0" y="402" font-size="15" font-weight="normal">Owns delivery status</text>
+<path d="M 490 215 L 490 320" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<text x="650" y="270" font-size="15" font-weight="normal">OrderCreated event</text>
+<text x="650" y="293" font-size="13" font-weight="normal">Proposed asynchronous flow</text>
+<text x="187" y="402" font-size="13" font-weight="normal">Solid arrows: implemented HTTP</text>
+<text x="818" y="402" font-size="13" font-weight="normal">Dashed arrow: design only</text>
+</g></svg>
